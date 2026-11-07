@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#165DFF">
+<title>邹利灵-电子名片</title>
+<meta name="description" content="无锡恺弈智能科技有限公司 邹利灵 | 自动化专用设备制造商 | 电话 18261586639">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="邹利灵-电子名片">
+<meta property="og:description" content="无锡恺弈智能科技有限公司 · 自动化专用设备制造商 · 18261586639">
+<meta name="format-detection" content="telephone=yes">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{min-height:100%}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:linear-gradient(165deg,#eaf1ff 0%,#f6f9ff 45%,#ffffff 100%);
+    color:#1a1f2b;
+    padding:28px 16px calc(28px + env(safe-area-inset-bottom));
+    display:flex;justify-content:center;align-items:flex-start;
+    -webkit-font-smoothing:antialiased;
+  }
+  .card{
+    width:100%;max-width:380px;border-radius:26px;overflow:hidden;
+    background:#fff;
+    box-shadow:0 18px 48px rgba(22,93,255,.16),0 2px 10px rgba(16,24,40,.05);
+    animation:rise .5s cubic-bezier(.22,.61,.36,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  /* ---------- 头部 ---------- */
+  .hero{
+    position:relative;padding:32px 24px 26px;text-align:center;color:#fff;
+    background:linear-gradient(160deg,#165DFF 0%,#2f74ff 60%,#4080FF 100%);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+    top:-110px;right:-70px;background:rgba(255,255,255,.13);
+  }
+  .hero::after{
+    content:"";position:absolute;width:150px;height:150px;border-radius:50%;
+    bottom:-90px;left:-50px;background:rgba(255,255,255,.09);
+  }
+  .avatar{
+    position:relative;z-index:1;width:66px;height:66px;margin:0 auto 14px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:28px;font-weight:600;letter-spacing:1px;color:#fff;
+    background:rgba(255,255,255,.2);
+    border:1px solid rgba(255,255,255,.55);
+    box-shadow:0 6px 18px rgba(9,40,120,.18);
+  }
+  .company{position:relative;z-index:1;font-size:19px;font-weight:600;letter-spacing:.6px;line-height:1.45}
+  .slogan{position:relative;z-index:1;margin-top:7px;font-size:12.5px;letter-spacing:1.6px;color:rgba(255,255,255,.85)}
+
+  /* ---------- 信息 ---------- */
+  .info{padding:24px 22px 6px}
+  .name-row{display:flex;align-items:baseline;gap:12px}
+  .name{font-size:26px;font-weight:700;letter-spacing:1.5px;color:#12203a}
+  .name-row .tag{
+    font-size:11px;font-weight:500;color:#165DFF;background:#eef3ff;
+    padding:3px 9px;border-radius:20px;letter-spacing:.5px;white-space:nowrap;
+  }
+  .business{
+    margin-top:14px;padding:12px 14px;border-radius:12px;
+    background:#f5f8ff;border-left:3px solid #165DFF;
+    font-size:13px;line-height:1.75;color:#4a5568;
+  }
+  .rows{margin-top:8px}
+  .row{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 2px;border-bottom:1px solid #f1f3f8;
+  }
+  .row:last-child{border-bottom:none}
+  .ico{
+    flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:#eef3ff;
+    display:flex;align-items:center;justify-content:center;font-size:15px;
+  }
+  .row-text{flex:1;min-width:0}
+  .row-label{font-size:11px;color:#98a2b3;letter-spacing:.6px;margin-bottom:2px}
+  .row-value{font-size:15.5px;color:#12203a;text-decoration:none;display:block;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  a.row-value:active{opacity:.6}
+  .tail{font-size:14px;color:#c3cbd8}
+
+  /* ---------- 按钮 ---------- */
+  .actions{display:grid;gap:10px;padding:16px 20px 22px}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;padding:15px 16px;border:none;border-radius:14px;
+    font-size:15.5px;font-weight:600;font-family:inherit;letter-spacing:.6px;
+    cursor:pointer;text-decoration:none;transition:transform .12s ease,opacity .12s ease;
+  }
+  .btn:active{transform:scale(.98);opacity:.9}
+  .btn-primary{color:#fff;background:linear-gradient(135deg,#165DFF,#4080FF);box-shadow:0 8px 20px rgba(22,93,255,.28)}
+  .btn-ghost{color:#165DFF;background:#fff;box-shadow:inset 0 0 0 1px #dbe4ff}
+  .btn-soft{color:#0E42C2;background:#eef3ff}
+
+  .foot{
+    text-align:center;padding:0 20px calc(18px + env(safe-area-inset-bottom));
+    font-size:11px;color:#a9b3c4;letter-spacing:.6px;
+  }
+
+  /* 提示条 */
+  .toast{
+    position:fixed;left:50%;bottom:38px;transform:translate(-50%,16px);
+    background:rgba(18,32,58,.94);color:#fff;font-size:13.5px;
+    padding:11px 20px;border-radius:12px;opacity:0;pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease;z-index:9;max-width:86vw;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  @media (max-width:360px){
+    .company{font-size:17.5px}
+    .name{font-size:23px}
+    .row-value{font-size:14.5px}
+  }
+</style>
+</head>
+<body>
+<main class="card">
+  <header class="hero">
+    <div class="avatar">邹</div>
+    <h1 class="company">无锡恺弈智能科技有限公司</h1>
+    <p class="slogan">自动化专用设备制造商</p>
+  </header>
+
+  <section class="info">
+    <div class="name-row">
+      <div class="name">邹利灵</div>
+      <span class="tag">业务对接</span>
+    </div>
+
+    <p class="business">主营：自动化专业设备生产（激光行业、汽车零部件、3C 行业等）</p>
+
+    <div class="rows">
+      <div class="row">
+        <div class="ico">📞</div>
+        <div class="row-text">
+          <div class="row-label">手机 / 微信同号</div>
+          <a class="row-value" href="tel:18261586639">18261586639</a>
+        </div>
+        <span class="tail">›</span>
+      </div>
+      <div class="row">
+        <div class="ico">✉️</div>
+        <div class="row-text">
+          <div class="row-label">电子邮箱</div>
+          <a class="row-value" href="mailto:18261586639@163.com">18261586639@163.com</a>
+        </div>
+        <span class="tail">›</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="tel:18261586639">📞 拨打电话</a>
+    <a class="btn btn-ghost" href="mailto:18261586639@163.com">✉️ 发送邮件</a>
+    <button class="btn btn-soft" type="button" id="copyBtn">📋 复制名片信息</button>
+  </div>
+
+  <p class="foot">长按或点击即可联系 · 期待与您合作</p>
+</main>
+
+<div class="toast" id="toast">名片已复制</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copyBtn');
+  var toast = document.getElementById('toast');
+  var timer = null;
+
+  var text = [
+    '无锡恺弈智能科技有限公司',
+    '邹利灵',
+    '主营：自动化专业设备生产（激光行业、汽车零部件、3C 行业等）',
+    '手机：18261586639',
+    '邮箱：18261586639@163.com'
+  ].join('\n');
+
+  function show(msg) {
+    toast.textContent = msg || '名片已复制';
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function () { toast.classList.remove('show'); }, 1800);
+  }
+
+  function legacyCopy() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  btn.addEventListener('click', function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        show('名片已复制');
+      }).catch(function () {
+        show(legacyCopy() ? '名片已复制' : '请长按上方信息手动复制');
+      });
+    } else {
+      show(legacyCopy() ? '名片已复制' : '请长按上方信息手动复制');
+    }
+  });
+})();
+</script>
+</body>
+</html>
